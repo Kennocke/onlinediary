@@ -1,0 +1,1131 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "The CREW API provides a set of providers matching details for Pega 7 applications.",
+    "version": "v1",
+    "title": "CREW API"
+  },
+  "paths": {
+    "/legalEntities": {
+      "get": {
+        "tags": [
+          "assignments"
+        ],
+        "summary": "Get Provider Results",
+        "description": "Returns list of matching providers.",
+        "operationId": "legalEntities",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "sourceName",
+            "required": false,
+            "description": "source Name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "externalRegistrationsId",
+            "required": false,
+            "description": "externalRegistrationsId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "externalRegistrationsTypeCode",
+            "required": false,
+            "description": "externalRegistrationsTypeCode",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "RCTID",
+            "required": false,
+            "description": "RCT ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "NetworkTPID",
+            "required": false,
+            "description": "Network TP ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "NetworkName",
+            "required": false,
+            "description": "Network Name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "companyName",
+            "required": false,
+            "description": "Company Name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "fuzzySearch",
+            "required": false,
+            "description": "Smart Search",
+            "schema": {
+              "type": "boolean",
+              "default": "false"
+            }
+          },
+          {
+            "in": "query",
+            "name": "countryCode",
+            "required": false,
+            "description": "countryCode",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "locality",
+            "required": false,
+            "description": "Locality",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "state",
+            "required": false,
+            "description": "Region",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "crewCaseReferenceId",
+            "required": false,
+            "description": "CrewCaseReferenceId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "callerCaseReferenceId",
+            "required": false,
+            "description": "CallerCaseReferenceId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "callerUserName",
+            "required": false,
+            "description": "Calling User Name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "callerUserId",
+            "required": false,
+            "description": "Calling User ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "listRequesterEmail",
+            "required": false,
+            "description": "List Requester Email",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "description": "Authorization",
+            "schema": {
+              "type": "string",
+              "default": "Bearer"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-NAME",
+            "required": false,
+            "description": "Calling Service Name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-CODE",
+            "required": false,
+            "description": "Calling Service ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-ORG",
+            "required": false,
+            "description": "Calling Service Org",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-APP-NAME",
+            "required": false,
+            "description": "Calling Appli Name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-APP-CODE",
+            "required": false,
+            "description": "Calling Appli ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/legalEntities_Detail": {
+      "get": {
+        "tags": [
+          "assignments"
+        ],
+        "summary": "Get Provider Details",
+        "description": "Return details for one provider item.",
+        "operationId": "legalEntities",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "sourceName",
+            "required": false,
+            "description": "source Name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "sourceId",
+            "required": false,
+            "description": "SourceId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "crewCaseReferenceId",
+            "required": false,
+            "description": "CrewCaseReferenceId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "callerCaseReferenceId",
+            "required": false,
+            "description": "CallerCaseReferenceId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "callerUserName",
+            "required": false,
+            "description": "Calling User Name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "callerUserId",
+            "required": false,
+            "description": "Calling User ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "description": "Authorization",
+            "schema": {
+              "type": "string",
+              "default": "Bearer"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-NAME",
+            "required": false,
+            "description": "Calling Service Name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-CODE",
+            "required": false,
+            "description": "Calling Service ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-ORG",
+            "required": false,
+            "description": "Calling Service Org",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-APP-NAME",
+            "required": false,
+            "description": "Calling Appli Name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-APP-CODE",
+            "required": false,
+            "description": "Calling Appli ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/legalEntities_EarlyRegistration": {
+      "get": {
+        "tags": [
+          "assignments"
+        ],
+        "summary": "Get Early Registration",
+        "description": "Creates an RCT ID in GDO Vision",
+        "operationId": "legalEntities_EarlyRegistration",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "sourceName",
+            "required": false,
+            "description": "sourceName",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "sourceId",
+            "required": false,
+            "description": "sourceId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "externalRegistrationsId",
+            "required": false,
+            "description": "externalRegistrationsId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "externalRegistrationsTypeCode",
+            "required": false,
+            "description": "externalRegistrationsTypeCode",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "legalName",
+            "required": false,
+            "description": "Company Name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "businessOperatingCase",
+            "required": false,
+            "description": "Business Operating Case",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "countryCode",
+            "required": false,
+            "description": "countryCode",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "locality",
+            "required": false,
+            "description": "Locality",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "esSubsididiaryAndELRInRelation",
+            "required": false,
+            "description": "E/S Subsididiary and ELR in relation",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "relationshipBeginingDate",
+            "required": false,
+            "description": "Relationship begining date",
+            "schema": {
+              "type": "date"
+            }
+          },
+          {
+            "in": "query",
+            "name": "relationshipType",
+            "required": false,
+            "description": "Relationship Type",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "localCustomerId",
+            "required": false,
+            "description": "Local Customer id",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "crewCaseReferenceId",
+            "required": false,
+            "description": "CrewCaseReferenceId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "callerCaseReferenceId",
+            "required": false,
+            "description": "CallerCaseReferenceId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "callerUserName",
+            "required": false,
+            "description": "Caller User Name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "callerUserId",
+            "required": false,
+            "description": "Caller User ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "description": "Authorization",
+            "schema": {
+              "type": "string",
+              "default": "Bearer"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-NAME",
+            "required": false,
+            "description": "Calling Service Name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-CODE",
+            "required": false,
+            "description": "Calling Service ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-ORG",
+            "required": false,
+            "description": "Calling Service Org",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-APP-NAME",
+            "required": false,
+            "description": "Calling Appli Name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-APP-CODE",
+            "required": false,
+            "description": "Calling Appli ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/legalEntities_FinancialData": {
+      "get": {
+        "tags": [
+          "assignments"
+        ],
+        "summary": "Get Provider Financial Data",
+        "description": "Search TP Financial Data by calling DnB Global Financial API",
+        "operationId": "legalEntities_FinancialData",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "rctid",
+            "required": false,
+            "description": "RCT ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "dunsId",
+            "required": false,
+            "description": "Duns ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "countryCode",
+            "required": false,
+            "description": "Country Code",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "externalIdValue",
+            "required": false,
+            "description": "External ID Value",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "accountType",
+            "required": false,
+            "description": "Accounting Type Code",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "state",
+            "required": false,
+            "description": "State",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "crewCaseReferenceId",
+            "required": false,
+            "description": "crewCaseReferenceId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "callerUserName",
+            "required": false,
+            "description": "Caller User Name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "callerUserId",
+            "required": false,
+            "description": "Caller User ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "description": "Authorization",
+            "schema": {
+              "type": "string",
+              "default": "Bearer"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-NAME",
+            "required": false,
+            "description": "Calling Service Name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-CODE",
+            "required": false,
+            "description": "Calling Service ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-ORG",
+            "required": false,
+            "description": "Calling Service Org",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-APP-NAME",
+            "required": false,
+            "description": "Calling Appli Name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-APP-CODE",
+            "required": false,
+            "description": "Calling Appli ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/legalEntities_UBO": {
+      "get": {
+        "tags": [
+          "assignments"
+        ],
+        "summary": "Get Provider UBO Data",
+        "description": "Search TP UBO Data by calling BVD matching and UBO API",
+        "operationId": "legalEntities_UBO",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "BvdID",
+            "required": false,
+            "description": "Bvd ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "LegalName",
+            "required": false,
+            "description": "Company Name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "CountryCode",
+            "required": false,
+            "description": "Country Code",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "ExtIdValue",
+            "required": false,
+            "description": "External ID Value",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "UBOThreshold",
+            "required": false,
+            "description": "UBO Threshold Value",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "crewCaseReferenceId",
+            "required": false,
+            "description": "crewCaseReferenceId",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "callerUserName",
+            "required": false,
+            "description": "Caller User Name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "callerUserId",
+            "required": false,
+            "description": "Caller User ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "description": "Authorization",
+            "schema": {
+              "type": "string",
+              "default": "Bearer"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-NAME",
+            "required": false,
+            "description": "Calling Service Name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-CODE",
+            "required": false,
+            "description": "Calling Service ID",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-ORG",
+            "required": false,
+            "description": "Calling Service Org",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-APP-NAME",
+            "required": false,
+            "description": "Calling Appli Name",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-BSC-SOA-CONSUMER-APP-CODE",
+            "required": false,
+            "description": "Calling Appli ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json;charset=UTF-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/docs": {
+      "get": {
+        "tags": [
+          "docs"
+        ],
+        "summary": "Get the complete documentation for CREW REST v1 services",
+        "description": "Gets the complete documentation for CREW REST v1 services.",
+        "parameters": [
+          {
+            "in": "header",
+            "name": "Authorization",
+            "required": false,
+            "description": "Authorization",
+            "schema": {
+              "type": "string",
+              "default": "Bearer"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "//h-crew.safe.socgen/prweb/PRRestService/crewAPI/v1"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "ErrorResponse": {
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Error"
+            }
+          }
+        }
+      },
+      "Error": {
+        "properties": {
+          "ID": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
